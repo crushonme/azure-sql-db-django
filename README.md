@@ -286,6 +286,15 @@ And you’ll get a response something like (based on available data in tables):
 
 Check out the [sample](https://github.com/azure-samples/azure-sql-db-django) to test all the CRUD operations.
 
+To add new customer, we can post below json to http://127.0.0.1:8000/customerapi/customer/. In this sample, we do not support bulk insert.
+```json
+{"CustomerId": 1, "CustomerName": "Keith"}
+```
+## Deploy your application code to Docker
+In this sample, we used pyodbc image and we can deploy it with VSCode with Docker engine installed.
+
+And we also can deploy it in AKS using Azure Container Registry.
+
 ## Deploy your application code to Azure App Service
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.

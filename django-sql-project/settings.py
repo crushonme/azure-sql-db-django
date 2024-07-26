@@ -93,28 +93,29 @@ WSGI_APPLICATION = 'django-sql-project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': os.getenv("DB_NAME"),
-        'HOST': os.getenv("DB_SERVER"),
-        'PORT': '1433',
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'OPTIONS': {
-	            'driver': 'ODBC Driver 17 for SQL Server',
-	        },
-    }
+    #    'ENGINE': 'mssql',
+    #    'NAME': os.getenv("DB_NAME"),
+    #    'HOST': os.getenv("DB_SERVER"),
+    #    'PORT': '1433',
+    #    'USER': os.getenv("DB_USER"),
+    #    'PASSWORD': os.getenv("DB_PASSWORD"),
+    #    'OPTIONS': {
+	#            'driver': 'ODBC Driver 17 for SQL Server',
+	#        },
+    #}
 
     #To connect Azure SQL DB using MSI (Managed Service Identity)
     # {
-    #     'ENGINE': 'mssql',
-    #     'HOST': 'xyz.database.windows.net',
-    #     'NAME': 'mydb', 
-    #     'PORT': '', 
-    #     'Trusted_Connection': 'no', 
-    #     'OPTIONS': { 
-    #         'driver': 'ODBC Driver 17 for SQL Server', 
-    #         'extra_params': "Authentication=ActiveDirectoryMsi;Encrypt=yes;TrustServerCertificate=no" }
-    # }
+        'ENGINE': os.getenv("DB_ENGINE"),
+        'HOST': os.getenv("DB_SERVER"),
+        'NAME': os.getenv("DB_NAME"),
+        'PORT': os.getenv("DB_PORT"),
+        #'USER': os.getenv("AZURE_OBJECT_ID"),
+         'Trusted_Connection': 'no', 
+         'OPTIONS': { 
+             'driver': 'ODBC Driver 18 for SQL Server', 
+             'extra_params': "Authentication=ActiveDirectoryMsi;Encrypt=yes;TrustServerCertificate=no" }
+     }
 }
 
 # Password validation
