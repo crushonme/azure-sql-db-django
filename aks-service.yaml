@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-sql-db-django
+  name: azuresqldbdjango-service
   namespace: ns-django
 spec:
   selector:
-    app: azure-sql-db-django
+    app: azuresqldbdjango-app
   ports:
     - protocol: TCP
       port: 80

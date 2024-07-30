@@ -30,8 +30,15 @@ function envsubst {
         $ExecutionContext.InvokeCommand.ExpandString($line) | Out-File -FilePath "$PSScriptRoot\aks-deployment-expand.yaml" -Append
     }
     foreach ($line in $allinone) {
-        $ExecutionContext.InvokeCommand.ExpandString($line) | Out-File -FilePath "$PSScriptRoot\aks-all-in-one.yaml-expand.yaml" -Append
+        $ExecutionContext.InvokeCommand.ExpandString($line) | Out-File -FilePath "$PSScriptRoot\aks-all-in-one-expand.yaml" -Append
     }
+}
+
+if (Test-Path "$PSScriptRoot\aks-all-in-one-expand.yaml") {
+    Remove-Item "$PSScriptRoot\aks-all-in-one-expand.yaml" -Force
+}
+if (Test-Path "$PSScriptRoot\aks-deployment-expand.yaml") {
+    Remove-Item "$PSScriptRoot\aks-deployment-expand.yaml" -Force
 }
 Import-Environment
 envsubst
