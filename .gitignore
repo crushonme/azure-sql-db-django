@@ -4,3 +4,5 @@ __pycache__/*
 *.pyc
 .vscode/*
 .env
+env-vars.txt
+*-expand.yaml
