@@ -35,11 +35,11 @@ spec:
           value: "1433"
         resources:
           requests:
-            cpu: 1000m
-            memory: 2560Mi
+            cpu: 200m
+            memory: 264Mi
           limits:
-            cpu: 1000m
-            memory: 2560Mi
+            cpu: 400m
+            memory: 1024Mi
         startupProbe:
           httpGet:
             path: /customerapi/customer/
